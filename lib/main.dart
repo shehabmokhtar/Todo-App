@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/features/layout/presentation/view/screens/app_layout_screen.dart';
+import 'package:todo_app/core/layout/presentation/view/screens/app_layout_screen.dart';
 
 void main() => runApp(const MyApp());
 
