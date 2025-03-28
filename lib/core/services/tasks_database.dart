@@ -29,12 +29,16 @@ String path = join(databasesPath, 'todo_app_database.db');
   }
 }
 
-static getTasks() async{
+static  getTasks() async{
   var databasesPath = await getDatabasesPath();
   String path = join(databasesPath, 'todo_app_database.db');
   Database database = await openDatabase(path);
-  List<Map> tasks = await database.rawQuery('SELECT * FROM tasks');
-  return tasks;
+  final List<Map> tasks = await database.rawQuery('SELECT * FROM tasks');
+List<TaskModel> tasksList = [];
+for (var task in tasks) {
+  tasksList.add(TaskModel.fromJson(task as Map<String, dynamic>));
+}
+  return tasksList;
 }
 
 addTask(TaskModel task) async{

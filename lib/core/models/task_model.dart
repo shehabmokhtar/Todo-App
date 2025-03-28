@@ -14,4 +14,15 @@ class TaskModel {
     required this.createdAt,
     this.updatedAt,
   });
+
+factory TaskModel.fromJson(Map<String,dynamic> json)=>
+   TaskModel(
+    id: json['id'],
+    title: json['title'],
+    description: json['description'],
+    status: json['status'],
+    createdAt: json['created_at'],
+    updatedAt: json['updated_at'],
+  );
+
 }
